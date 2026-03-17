@@ -1,0 +1,44 @@
+body{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color:#1d232d;
+	background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.navigation{
+	background-color:grey;
+	margin: auto;
+	padding: 5px;
+	top: 0px;
+	left: 0px;
+	height: 50px;
+}
+
+.bigbutton {
+    font: bold 30px Arial;
+    text-decoration: none;
+    color: #333333!important;
+    background-color: #EEEEEE;
+    padding: 13px 25px;
+    border-top: 2px solid #CCCCCC;
+    border-right: 2px solid #333333;
+    border-bottom: 2px solid #333333;
+    border-left: 2px solid #CCCCCC;
+}
+
+.content{
+	width: 80%;
+	background-color:grey;
+	margin: auto;
+	padding: 5px;
+}
+
+.footer{
+	width: 100%;
+	background-color:grey;
+	position: fixed;
+	padding: 5px;
+	left: 0px;
+	bottom: 0px;
+}
