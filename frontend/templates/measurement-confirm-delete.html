@@ -1,0 +1,14 @@
+{% extends 'master.html' %}
+
+{% block title %}Delete Measurement{% endblock %}
+
+{% block content %}
+<h1>Delete Measurement</h1>
+<p>Are you sure you want to delete measurement #{{ measurement.pk }} 
+  ({{ measurement.value }} from {{ measurement.device }})?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Yes, delete</button>
+</form>
+<a href="{% url 'measurement_list' %}">Cancel</a>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'master.html' %}
+
+{% block title %}{% if measurement %}Edit Measurement{% else %}Add Measurement{% endif %}{% endblock %}
+
+{% block content %}
+<h1>{% if measurement %}Edit Measurement{% else %}Add Measurement{% endif %}</h1>
+<form method="post">
+  {% csrf_token %}
+  <label for="device_id">Device:</label>
+  <select name="device_id" id="device_id" required>
+    {% for d in devices %}
+    <option value="{{ d.pk }}" {% if measurement and measurement.device_id == d.pk %}selected{% endif %}>
+      {{ d.custom_name|default:d.device_id }}
+    </option>
+    {% endfor %}
+  </select>
+
+  <label for="value">Value:</label>
+  <input type="number" step="any" name="value" id="value" value="{{ measurement.value|default:'' }}" required>
+
+  <label for="timestamp">Timestamp:</label>
+  <input type="datetime-local" name="timestamp" id="timestamp" value="{{ measurement.timestamp|date:'Y-m-d\TH:i' }}" required>
+
+  <button type="submit">{% if measurement %}Save{% else %}Create{% endif %}</button>
+</form>
+<a href="{% url 'measurement_list' %}">Cancel</a>
+{% endblock %}

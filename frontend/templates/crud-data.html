@@ -1,0 +1,37 @@
+{% extends 'master.html' %}
+
+{% block title %}Measurements{% endblock %}
+
+{% block content %}
+
+<h1>Measurements</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Device</th>
+      <th>Device Type</th>
+      <th>Value</th>
+      <th>Timestamp</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for m in measurements %}
+    <tr>
+      <td>{{ m.pk }}</td>
+      <td>{{ m.device.custom_name|default:m.device.device_id }}</td>
+      <td>{{ m.device.device_type }}</td>
+      <td>{{ m.value }}</td>
+      <td>{{ m.timestamp }}</td>
+      <td>
+        <a href="{% url 'measurement_edit' m.pk %}">Edit</a>
+        <a href="{% url 'measurement_delete' m.pk %}">Delete</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="6">No measurements found.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
