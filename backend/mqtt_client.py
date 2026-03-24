@@ -1,9 +1,13 @@
 import json
 import os
+import sys
 import django
 from datetime import datetime
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "4TH-SEMESTER-PROJECT.settings")
+# Add current directory to Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "IoT_washing_machine.settings")
 django.setup()
 
 from backend.models import Device, Measurement

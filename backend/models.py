@@ -7,6 +7,9 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
+    
+    class Meta:
+        db_table = 'users'
 
 
 class Device(models.Model):
@@ -25,3 +28,14 @@ class Measurement(models.Model):
 
     def __str__(self):
         return f"{self.device.name} - {self.value} @ {self.timestamp}"
+
+
+class Notification(models.Model):
+    device = models.ForeignKey(Device, on_delete=models.CASCADE, related_name="notifications")
+    measurement = models.ForeignKey(Measurement, on_delete=models.SET_NULL, null=True, blank=True)
+    message = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_acknowledged = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Notification for {self.device.name}: {self.message}"
