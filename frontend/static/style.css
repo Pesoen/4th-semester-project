@@ -16,15 +16,26 @@ body{
 }
 
 .bigbutton {
-    font: bold 30px Arial;
-    text-decoration: none;
-    color: #333333!important;
-    background-color: #EEEEEE;
-    padding: 13px 25px;
-    border-top: 2px solid #CCCCCC;
-    border-right: 2px solid #333333;
-    border-bottom: 2px solid #333333;
-    border-left: 2px solid #CCCCCC;
+	font: bold 30px Arial;
+	text-decoration: none;
+	color: #333333!important;
+	background-color: #EEEEEE;
+	padding: 13px 25px;
+	border-top: 2px solid #CCCCCC;
+	border-right: 2px solid #333333;
+	border-bottom: 2px solid #333333;
+	border-left: 2px solid #CCCCCC;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td, th {
+	padding: 5px;
+	border: 2px solid black;
+	text-align: center;
+	height: 40px;
 }
 
 .content{
