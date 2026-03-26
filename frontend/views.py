@@ -22,7 +22,7 @@ def device_create(request):
     if request.method == 'POST':
         Device.objects.create(
             device_id=request.POST['device_id'],
-            device_type=request.POST['device_type'],
+            type=request.POST['type'],
             custom_name=request.POST.get('custom_name') or None,
             user=request.user,
         )
