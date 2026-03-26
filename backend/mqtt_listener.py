@@ -14,7 +14,7 @@ def on_message(client, userdata, msg):
     #Time for when message is sent, NOT when the measurement is taken
     timeStamp = datetime.datetime.now().strftime("%H:%M:%S")
     #Endpoint for the data, that will be used in Django
-    url = "http://localhost:8000/api/measurements/"
+    url = "http://localhost:8000/api/measurements/receive/"
     #The data we get via MQTT
     data = json.loads(msg.payload.decode())
     #Add the time value
