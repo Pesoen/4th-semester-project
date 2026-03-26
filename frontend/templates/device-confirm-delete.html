@@ -1,0 +1,13 @@
+{% extends 'master.html' %}
+
+{% block title %}Delete Device{% endblock %}
+
+{% block content %}
+<h1>Delete Device</h1>
+<p>Are you sure you want to delete "{{ device }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Yes, delete</button>
+</form>
+<a href="{% url 'device_list' %}">Cancel</a>
+{% endblock %}

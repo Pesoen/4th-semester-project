@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+
+{% block title %}{% if device %}Edit Device{% else %}Add Device{% endif %}{% endblock %}
+
+{% block content %}
+<h1>{% if device %}Edit Device{% else %}Add Device{% endif %}</h1>
+<form method="post">
+  {% csrf_token %}
+  <label for="device_id">Device ID:</label>
+  <input type="text" name="device_id" id="device_id" value="{{ device.device_id|default:'' }}" required>
+
+  <label for="device_type">Device Type:</label>
+  <input type="text" name="device_type" id="device_type" value="{{ device.device_type|default:'' }}" required>
+
+  <label for="custom_name">Custom Name (optional):</label>
+  <input type="text" name="custom_name" id="custom_name" value="{{ device.custom_name|default:'' }}">
+
+  <button type="submit">{% if device %}Save{% else %}Create{% endif %}</button>
+</form>
+<a href="{% url 'device_list' %}">Cancel</a>
+{% endblock %}

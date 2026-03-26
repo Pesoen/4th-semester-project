@@ -14,31 +14,32 @@ her kan vi tilføje:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token }}">
-  <!--Her kan vi sætte en titel på siden fra en anden side.-->
+  <!--Her kan vi sætte en titel på siden fra en anden side-->
   <title>{% block title %}{% endblock %} - IOT Washing Machine</title>
-  <!--Stylesheet, så det ser lidt pænere ud.-->
+  <!--Stylesheet, så det ser lidt pænere ud-->
   <link rel="stylesheet" href="{% static 'style.css' %}" async>
-  <!--gør så vores style sheet ændringer bliver vist med det samme.-->
+  <!--gør så vores style sheet ændringer bliver vist med det samme-->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 </head>
 <body>
-    <nav class=navigation>
-        <a class ="bigbutton" href = "{% url 'main' %}">Forside</a>
-        <a class ="bigbutton" href = "{% url 'main' %}">Devices</a>
-        <!--Her kan vi opbygge en navbar i toppen af vores side.-->
-    </nav>
-    
-    <main class=content>
-        <!--her kommer vores indhold ind på siden-->
-        {% block content %}{% endblock %}
-    </main>
-    <footer class=footer>
-        <!--Her kan vi opbygge en footer i bunden af vores side.-->
-        <h3 class="nomargin nopadding">IoT Washing Machine</h3>
-        <p class="nomargin nopadding">For fejl og mangler, kontakt en administrator</p>
-    </footer>
+  <nav class=navigation>
+    <!--Her opbygger vi en navbar i toppen af vores side-->
+    <a class="bigbutton" href="{% url 'main' %}">Forside</a>
+    <a class="bigbutton" href="{% url 'device_list' %}">Enheder</a>
+    <a class="bigbutton" href="{% url 'measurement_list' %}">Målinger</a>
+  </nav>
+
+  <main class=content>
+    <!--her kommer vores indhold ind på siden-->
+    {% block content %}{% endblock %}
+  </main>
+  <footer class=footer>
+    <!--Her kan vi opbygge en footer i bunden af vores side-->
+    <h3 class="nomargin nopadding">IoT Washing Machine</h3>
+    <p class="nomargin nopadding">For fejl og mangler, kontakt en administrator</p>
+  </footer>
 </body>
 <!--mulighed for scripts i fremtiden-->
 {% block scripts %}{% endblock %}

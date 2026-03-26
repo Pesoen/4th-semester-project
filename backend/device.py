@@ -1,7 +1,7 @@
 class Device: 
-    def __init__(self, id: int, name: str, type: str):
+    def __init__(self, id: int, name: str, device_type: str):
         self.id = id
         self.name = name
-        self.type = type
-        self.user: User | None = None
-        self.measurements: list["Measurement"] = []
+        self.device_type = device_type
+        #self.user: User | None = None
+        #self.measurements: list["Measurement"] = []
