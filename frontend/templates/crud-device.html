@@ -18,7 +18,7 @@
     {% for device in devices %}
     <tr>
       <td>{{ device.device_id }}</td>
-      <td>{{ device.device_type }}</td>
+      <td>{{ device.type }}</td>
       <td>{{ device.custom_name|default:"-" }}</td>
       <td>
         <a href="{% url 'device_edit' device.pk %}">Edit</a>
