@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from .models import Measurement, Notification, Device
 import json
+from django.utils import timezone
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
 
@@ -29,6 +30,6 @@ def receive_measurement(request):
         Measurement.objects.create(
             device=device,
             value=data["power"],
-            timestamp=datetime.now()
+            timestamp=timezone.now()
         )
         return JsonResponse({"status":"ok"})
